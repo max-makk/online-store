@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: 'development',
@@ -39,7 +40,10 @@ module.exports = {
       title: 'Output Management',
       template: 'src/index.html',
     }),
-    new ESLintPlugin({ extensions: 'ts' })
+    new ESLintPlugin({ extensions: 'ts' }),
+    new CopyPlugin({
+      patterns: [{ from: './src/assets/data', to: 'data' }]
+    })
   ],
   optimization: {
     runtimeChunk: 'single',
