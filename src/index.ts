@@ -1,2 +1,1 @@
-console.log('hi')
-document.body.style.backgroundColor = 'red'
+import './style.css'
