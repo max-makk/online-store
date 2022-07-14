@@ -12,6 +12,10 @@ export default class Card {
     card.classList.add('border-dark')
     card.classList.add('rounded-0')
 
+
+    const str = data.name.replace(/ /g, '')
+    card.id = str
+
     img.classList.add('img-fluid')
     img.classList.add('mx-auto')
 

@@ -44,6 +44,37 @@ export default class View {
     this.colors.draw(data)
   }
 
+  addRibbons(data: string[]) {
+    this.clearCards()
+    this.numberInCart(data.length)
+    data.forEach(el => {
+      const card = document.getElementById(`${el}`) as HTMLElement
+      if(!card) return
+      const div: HTMLElement = document.createElement('div')
+      const span: HTMLElement = document.createElement('span')
+      div.classList.add('ribbon')
+      div.classList.add('ribbon-top-left')
+      div.append(span)
+      card.append(div)
+    })
+    console.log('hiiiii')
+  }
+
+  numberInCart(n: number) {
+    const numberCart = document.querySelector('.number') as HTMLElement
+    numberCart.textContent = String(n)
+  }
+
+  clearCards() {
+    const cards: NodeListOf<HTMLElement> = document.querySelectorAll('.card')
+    cards.forEach(el => {
+      const div = el.lastChild as HTMLElement
+      if(div.classList.contains('ribbon')) {
+        div.remove()
+      }
+    })
+  }
+
   restoreView(data: State) {
     data.brands.forEach(el => {
       const str = el.replace(/ /g, '')

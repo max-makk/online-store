@@ -40,19 +40,40 @@ export default class Controller {
     callback(this.state)
   }
 
+  getCartItems(callback: (data: string[]) => void) {
+    callback(this.state.cart)
+  }
+
   getAllItems(callback: (data: Item[]) => void) {
     callback(this.data)
+  }
+
+  addToCart(e: Event, callback: (data: string[]) => void) {
+    const card = (e.target as Element).closest('.card')
+    let name = ''
+    if(card) {
+      name = card.id
+    }
+    if(this.state.cart.includes(name)) {
+      this.state.cart = this.state.cart.filter(el => el !== name)
+    } else {
+      this.state.cart.push(name)
+    }
+    Storage.saveState(this.state)
+    callback(this.state.cart)
   }
 
   filterByBrands(e: Event, callback: (data: Item[]) => void) {
     const brand = (e.target as HTMLInputElement).id
     const check = (e.target as HTMLInputElement).checked
+    const str = brand.replace(/ /g, '')
+
     if(check) {
-      if(!this.state.brands.includes(brand)) {
-        this.state.brands.push(brand)
+      if(!this.state.brands.includes(str)) {
+        this.state.brands.push(str)
       }
     } else {
-      this.state.brands = this.state.brands.filter(el => el !== brand)
+      this.state.brands = this.state.brands.filter(el => el !== str)
     }
     Storage.saveState(this.state)
     this.applyFilters()
@@ -158,7 +179,8 @@ export default class Controller {
       let del = true
       if(this.state.brands.length === 0) break
       this.state.brands.forEach(b => {
-        if(item.brand === b) {
+        const str = item.brand.replace(/ /g, '')
+        if(str === b) {
           del = false
         }
       })
