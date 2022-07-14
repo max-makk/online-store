@@ -103,6 +103,8 @@ export default class App {
   }
 
   listenSort() {
-    document.querySelector('.sort')?.addEventListener('change', (e) => console.log(e))
+    document.querySelector('.sort')?.addEventListener('change', (e) => {
+      this.controller.sortItems(e, (data: Item[]) => this.view.displayCards(data))
+    })
   }
 }

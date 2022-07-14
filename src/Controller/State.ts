@@ -10,7 +10,7 @@ export default class State {
   popular: boolean
   sorted: string
   constructor() {
-    this.sorted = ''
+    this.sorted = 'name-A'
     this.cart = []
     this.brands = []
     this.names = []

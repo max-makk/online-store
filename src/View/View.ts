@@ -60,5 +60,7 @@ export default class View {
     })
     const popular = document.querySelector('.popular') as HTMLInputElement
     popular.checked = data.popular
+    const option = document.querySelector(`.sort [value='${data.sorted}']`) as HTMLOptionElement
+    option.selected = true
   }
 }

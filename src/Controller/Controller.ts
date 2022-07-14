@@ -143,6 +143,14 @@ export default class Controller {
     return this.state.years
   }
 
+  sortItems(e: Event, callback: (data: Item[]) => void) {
+    const type = (e.target as HTMLOptionElement)
+    this.state.sorted = type.value
+    Storage.saveState(this.state)
+    this.applyFilters()
+    callback(this.products)
+  }
+
   applyFilters() {
     this.products = [...this.data]
     for(let i = 0; i < this.products.length; i++) {
@@ -210,6 +218,31 @@ export default class Controller {
         this.products.splice(i, 1)
         i--
       }
+    }
+    if(this.state.sorted === 'name-A') {
+      this.products = this.products.sort((a, b) => {
+        return a.name > b.name ? 1 : -1
+      })
+    } else if(this.state.sorted === 'name-D') {
+      this.products = this.products.sort((a, b) => {
+        return a.name < b.name ? 1 : -1
+      })
+    }  else if(this.state.sorted === 'year-A') {
+      this.products = this.products.sort((a, b) => {
+        return a.year > b.year ? 1 : -1
+      })
+    } else if(this.state.sorted === 'year-D') {
+      this.products = this.products.sort((a, b) => {
+        return a.year < b.year ? 1 : -1
+      })
+    } else if(this.state.sorted === 'quantity-A') {
+      this.products = this.products.sort((a, b) => {
+        return a.quantity > b.quantity ? 1 : -1
+      })
+    } else if(this.state.sorted === 'quantity-D') {
+      this.products = this.products.sort((a, b) => {
+        return a.quantity < b.quantity ? 1 : -1
+      })
     }
   }
 
