@@ -1,30 +1,19 @@
 [
-  {
-    "name": "Drop Cat Seeker",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Landyachtz",
-    "color": "black",
-    "size": 38,
-    "popular": true,
-    "price": 239.95,
-    "img": "../data/img/landyachtz-drop-cat-seeker-38-drop-through-complete-longboard-black.webp"
-  },
-  {
-    "name": "Tsunami",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "DB Longboards",
-    "color": "black",
-    "size": 36,
-    "popular": true,
-    "price": 206.95,
-    "img": "../data/img/db-longboards-tsunami-36-complete-longboard.webp"
-  },
+{
+  "name": "Cobra",
+  "year": 2022,
+  "quantity": 5,
+  "brand": "Globe",
+  "color": "multi",
+  "size": 38,
+  "popular": false,
+  "price": 179.95,
+  "img": "../data/img/dusters-cobra-38-complete-longboard.webp"
+},
   {
     "name": "Pinner Classic",
     "year": 2008,
-    "quantity": 12,
+    "quantity": 3,
     "brand": "Globe",
     "color": "black",
     "size": 40,
@@ -33,9 +22,43 @@
     "img": "../data/img/globe-pinner-classic-40-complete-longboard-coconut-black-tide.webp"
   },
   {
+    "name": "Moto Cosmic",
+    "year": 2000,
+    "quantity": 8,
+    "brand": "Dusters",
+    "color": "multi",
+    "size": 37,
+    "popular": false,
+    "price": 162.95,
+    "img": "../data/img/dusters-moto-cosmic-37-complete-longboard.webp"
+  },
+  {
+    "name": "Zeppelin Flagship",
+    "year": 2019,
+    "quantity": 7,
+    "brand": "Arbor",
+    "color": "orange",
+    "size": 32,
+    "popular": true,
+    "price": 182.95,
+    "img": "../data/img/arbor-zeppelin-flagship-32-complete-longboard-palisander-black-trucks.webp"
+  },
+
+  {
+    "name": "Felix The Cat Chrome",
+    "year": 2013,
+    "quantity": 11,
+    "brand": "Dusters",
+    "color": "pink",
+    "size": 36,
+    "popular": false,
+    "price": 195.95,
+    "img": "../data/img/dusters-felix-the-cat-chrome-36-complete-longboard.webp"
+  },
+  {
     "name": "Chill",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2011,
+    "quantity": 1,
     "brand": "Dusters",
     "color": "black",
     "size": 38,
@@ -45,8 +68,8 @@
   },
   {
     "name": "Fish Artist",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2012,
+    "quantity": 2,
     "brand": "Arbor",
     "color": "black",
     "size": 37,
@@ -56,8 +79,8 @@
   },
   {
     "name": "Bear",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2005,
+    "quantity": 3,
     "brand": "DB Longboards",
     "color": "black",
     "size": 33,
@@ -65,21 +88,11 @@
     "price": 201.95,
     "img": "../data/img/db-longboards-bear-33-complete-longboard.webp"
   },
-  {
-    "name": "Felix The Cat Chrome",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Dusters",
-    "color": "pink",
-    "size": 36,
-    "popular": false,
-    "price": 195.95,
-    "img": "../data/img/dusters-felix-the-cat-chrome-36-complete-longboard.webp"
-  },
+
   {
     "name": "Culture",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2001,
+    "quantity": 4,
     "brand": "Dusters",
     "color": "pink",
     "size": 33,
@@ -89,8 +102,8 @@
   },
   {
     "name": "Mini Cooper",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2007,
+    "quantity": 1,
     "brand": "DB Longboards",
     "color": "blue",
     "size": 33,
@@ -99,8 +112,30 @@
     "img": "../data/img/db-longboards-mini-cooper-33-complete-longboard.webp"
   },
   {
+    "name": "Drop Cat Seeker",
+    "year": 2020,
+    "quantity": 8,
+    "brand": "Landyachtz",
+    "color": "black",
+    "size": 38,
+    "popular": true,
+    "price": 239.95,
+    "img": "../data/img/landyachtz-drop-cat-seeker-38-drop-through-complete-longboard-black.webp"
+  },
+  {
+    "name": "Fish Groundswell",
+    "year": 2017,
+    "quantity": 11,
+    "brand": "Arbor",
+    "color": "orange",
+    "size": 37,
+    "popular": false,
+    "price": 189.95,
+    "img": "../data/img/arbor-fish-groundswell-37-complete-longboard-marbled-black-trucks.webp"
+  },
+  {
     "name": "Switchblade",
-    "year": 2008,
+    "year": 2006,
     "quantity": 12,
     "brand": "Landyachtz",
     "color": "blue",
@@ -112,7 +147,7 @@
   {
     "name": "Pinner Classic",
     "year": 2008,
-    "quantity": 12,
+    "quantity": 10,
     "brand": "Globe",
     "color": "blue",
     "size": 40,
@@ -121,9 +156,20 @@
     "img": "../data/img/globe-pinner-classic-40-complete-longboard-half-cut.webp"
   },
   {
+    "name": "Fish Bamboo",
+    "year": 2012,
+    "quantity": 5,
+    "brand": "Arbor",
+    "color": "white",
+    "size": 37,
+    "popular": false,
+    "price": 169.95,
+    "img": "../data/img/arbor-fish-bamboo-37-complete-longboard-black-trucks-trans-amber.webp"
+  },
+  {
     "name": "Channel Dragonfly",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2021,
+    "quantity": 6,
     "brand": "Dusters",
     "color": "blue",
     "size": 34,
@@ -133,8 +179,8 @@
   },
   {
     "name": "Arcadia",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2003,
+    "quantity": 2,
     "brand": "Globe",
     "color": "orange",
     "size": 36,
@@ -144,8 +190,8 @@
   },
   {
     "name": "Dig It",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2000,
+    "quantity": 9,
     "brand": "Dusters",
     "color": "orange",
     "size": 40,
@@ -153,32 +199,11 @@
     "price": 179.95,
     "img": "../data/img/dusters-dig-it-40-complete-longboard.webp"
   },
-  {
-    "name": "Zeppelin Flagship",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Arbor",
-    "color": "orange",
-    "size": 32,
-    "popular": true,
-    "price": 182.95,
-    "img": "../data/img/arbor-zeppelin-flagship-32-complete-longboard-palisander-black-trucks.webp"
-  },
-  {
-    "name": "Fish Groundswell",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Arbor",
-    "color": "orange",
-    "size": 37,
-    "popular": false,
-    "price": 189.95,
-    "img": "../data/img/arbor-fish-groundswell-37-complete-longboard-marbled-black-trucks.webp"
-  },
+
   {
     "name": "The All-Time V-Ply",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2022,
+    "quantity": 2,
     "brand": "Globe",
     "color": "green",
     "size": 36,
@@ -188,8 +213,8 @@
   },
   {
     "name": "California Dreaming",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2021,
+    "quantity": 8,
     "brand": "Dusters",
     "color": "green",
     "size": 40,
@@ -198,9 +223,20 @@
     "img": "../data/img/dusters-california-dreaming-40-complete-longboard.webp"
   },
   {
+    "name": "Tsunami",
+    "year": 2013,
+    "quantity": 4,
+    "brand": "DB Longboards",
+    "color": "black",
+    "size": 36,
+    "popular": true,
+    "price": 206.95,
+    "img": "../data/img/db-longboards-tsunami-36-complete-longboard.webp"
+  },
+  {
     "name": "Battle Axe Bengal",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2012,
+    "quantity": 10,
     "brand": "Landyachtz",
     "color": "white",
     "size": 38,
@@ -208,31 +244,11 @@
     "price": 229.95,
     "img": "../data/img/landyachtz-battle-axe-bengal-38-complete-longboard.webp"
   },
-  {
-    "name": "Fish Bamboo",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Arbor",
-    "color": "white",
-    "size": 37,
-    "popular": false,
-    "price": 169.95,
-    "img": "../data/img/arbor-fish-bamboo-37-complete-longboard-black-trucks-trans-amber.webp"
-  },
-  {
-    "name": "Moto Cosmic",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Dusters",
-    "color": "multi",
-    "size": 37,
-    "popular": false,
-    "price": 162.95,
-    "img": "../data/img/dusters-moto-cosmic-37-complete-longboard.webp"
-  },
+
+
   {
     "name": "Pintail",
-    "year": 2008,
+    "year": 2009,
     "quantity": 12,
     "brand": "Globe",
     "color": "multi",
@@ -241,21 +257,11 @@
     "price": 175.95,
     "img": "../data/img/globe-pintail-37-complete-longboard-the-launcher.webp"
   },
-  {
-    "name": "Cobra",
-    "year": 2008,
-    "quantity": 12,
-    "brand": "Globe",
-    "color": "multi",
-    "size": 38,
-    "popular": false,
-    "price": 179.95,
-    "img": "../data/img/dusters-cobra-38-complete-longboard.webp"
-  },
+
   {
     "name": "Wanderer",
-    "year": 2008,
-    "quantity": 12,
+    "year": 2016,
+    "quantity": 1,
     "brand": "DB Longboards",
     "color": "multi",
     "size": 38,

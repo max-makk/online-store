@@ -42,10 +42,13 @@ module.exports = {
     }),
     new ESLintPlugin({ extensions: 'ts' }),
     new CopyPlugin({
-      patterns: [{ from: './src/assets/data', to: 'data' }]
+      patterns: [
+        { from: './src/assets/data', to: 'data' }, 
+        { from: './src/assets/icons', to: 'icons' }
+      ]
     })
   ],
   optimization: {
     runtimeChunk: 'single',
   },
-};
+}
