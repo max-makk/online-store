@@ -202,6 +202,25 @@ export default class Controller {
     this.applyFilters()
   }
 
+  resetFilters() {
+    this.state.brands = []
+    this.state.colors = []
+    this.state.sizes = []
+    this.state.quantity = []
+    this.state.years = []
+    this.state.popular = false
+    this.state.search = ''
+    Storage.saveState(this.state)
+    this.applyFilters()
+  }
+
+  resetState() {
+    this.state = new State()
+    Storage.clearState()
+    Storage.saveState(this.state)
+    this.applyFilters()
+  }
+
   applyFilters() {
     this.products = [...this.data]
     for(let i = 0; i < this.products.length; i++) {

@@ -32,6 +32,8 @@ export default class App {
     this.addSortListener()
     this.addCardsListener()
     this.addSearchListener()
+    this.addResetFilterListener()
+    this.addResetSettingsListener()
     this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
   }
 
@@ -68,7 +70,12 @@ export default class App {
   addQuantityListener() {
     const [min, max] = this.controller.getQuantity()
     const [currentMin, currentMax] = this.controller.getStateQuantity()
-    const div = document.querySelector('.quantity-slider') as HTMLElement
+    const prev = document.querySelector('.quantity-slider') as HTMLElement
+    const parent = prev.parentElement
+    parent?.firstElementChild?.remove()
+    const div = document.createElement('div')
+    div.classList.add('quantity-slider')
+    parent?.append(div)
     const quantity = QuantitySlider.create(div, {
       start: [currentMin || min, currentMax || max],
       connect: true,
@@ -92,7 +99,12 @@ export default class App {
   addYearsListener() {
     const [min, max] = this.controller.getYears()
     const [currentMin, currentMax] = this.controller.getStateYears()
-    const div = document.querySelector('.years-slider') as HTMLElement
+    const prev = document.querySelector('.years-slider') as HTMLElement
+    const parent = prev.parentElement
+    parent?.firstElementChild?.remove()
+    const div = document.createElement('div')
+    div.classList.add('years-slider')
+    parent?.append(div)
     const years = YearsSlider.create(div, {
       start: [currentMin || min, currentMax || max],
       connect: true,
@@ -149,6 +161,36 @@ export default class App {
       this.controller.getItems((data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
-    
+  }
+  addResetFilterListener() {
+    const button = document.querySelector('.reset-filter') as HTMLButtonElement
+    const search = document.getElementById('search') as HTMLInputElement
+    button.addEventListener('click', () => {
+      this.controller.resetFilters()
+      this.view.removeChecked()
+      this.addYearsListener()
+      this.addQuantityListener()
+      search.value = ''
+      this.view.hideClearButton()
+      this.controller.getItems((data: Item[]) => this.view.displayCards(data))
+      this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
+    })
+  }
+  addResetSettingsListener() {
+    const button = document.querySelector('.reset-settings') as HTMLButtonElement
+    const search = document.getElementById('search') as HTMLInputElement
+    button.addEventListener('click', () => {
+      const option = document.querySelector('.sort [value="name-A"]') as HTMLOptionElement
+      option.selected = true
+      this.controller.resetState()
+      this.controller.resetFilters()
+      this.view.removeChecked()
+      this.addYearsListener()
+      this.addQuantityListener()
+      search.value = ''
+      this.view.hideClearButton()
+      this.controller.getItems((data: Item[]) => this.view.displayCards(data))
+      this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
+    })
   }
 }

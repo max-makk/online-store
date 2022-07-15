@@ -126,4 +126,22 @@ export default class View {
       this.hideClearButton()
     }
   }
+
+  removeChecked() {
+    const brands = document.querySelector('.nav-brands') as HTMLElement
+    Array.from(brands.children).forEach(el => {
+      (el.firstChild as HTMLInputElement).checked = false
+    })
+    const sizes = document.querySelector('.nav-sizes') as HTMLElement
+    Array.from(sizes.children).forEach(el => {
+      (el.firstChild as HTMLInputElement).checked = false
+    })
+    const colors = document.querySelector('.nav-colors') as HTMLElement
+    Array.from(colors.children).forEach(el => {
+      (el as HTMLElement).classList.remove('active')
+    })
+    const popular = document.querySelector('.popular') as HTMLInputElement
+    popular.checked = false
+  }
+
 }
