@@ -29,7 +29,11 @@ export default class Card {
     img.alt = data.name
     brand.textContent = data.brand
     name.textContent = `${data.name} ${data.size}" ${data.color} ${data.year} (${data.quantity})`
-    price.textContent = `$${data.price}`
+    if(data.popular) {
+      price.textContent = `$${data.price} Popular`
+    } else {
+      price.textContent = `$${data.price}`
+    }
 
     card.append(img)
     card.append(brand)

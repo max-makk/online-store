@@ -23,32 +23,33 @@ export default class App {
     this.controller.getAllItems((data: Item[]) => this.view.displaySizes(data))
     this.controller.getAllItems((data: Item[]) => this.view.displayColors(data))
     this.controller.getState((data: State) => this.view.restoreView(data))
-    this.listenBrands()
-    this.listenColors()
-    this.listenSizes()
-    this.listenPopular()
-    this.listenYears()
-    this.listenQuantity()
-    this.listenSort()
-    this.listenCards()
+    this.addBrandsListener()
+    this.addColorsListener()
+    this.addSizesListener()
+    this.addPopularListener()
+    this.addYearsListener()
+    this.addQuantityListener()
+    this.addSortListener()
+    this.addCardsListener()
+    this.addSearchListener()
     this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
   }
 
-  listenBrands() {
+  addBrandsListener() {
     document.querySelector('.nav-brands')?.addEventListener('change', (e) => {
       this.controller.filterByBrands(e, (data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
 
-  listenSizes() {
+  addSizesListener() {
     document.querySelector('.nav-sizes')?.addEventListener('change', (e) => {
       this.controller.filterBySizes(e, (data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
 
-  listenColors() {
+  addColorsListener() {
     document.querySelector('.nav-colors')?.addEventListener('click', (e) => {
       if(!(e.target as HTMLElement).closest('.btn-color')) return
       if((e.target as HTMLElement).classList.contains('btn-border')) return
@@ -58,13 +59,13 @@ export default class App {
 
   }
 
-  listenPopular() {
+  addPopularListener() {
     document.querySelector('.popular')?.addEventListener('change', (e) => {
       this.controller.filterByPopular(e, (data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
-  listenQuantity() {
+  addQuantityListener() {
     const [min, max] = this.controller.getQuantity()
     const [currentMin, currentMax] = this.controller.getStateQuantity()
     const div = document.querySelector('.quantity-slider') as HTMLElement
@@ -84,11 +85,11 @@ export default class App {
     })
     quantity.on('update', (v) => {
       this.controller.filterByQuantity(v, (data: Item[]) => this.view.displayCards(data))
+      this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
-    this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
   }
 
-  listenYears() {
+  addYearsListener() {
     const [min, max] = this.controller.getYears()
     const [currentMin, currentMax] = this.controller.getStateYears()
     const div = document.querySelector('.years-slider') as HTMLElement
@@ -108,23 +109,46 @@ export default class App {
     })
     years.on('update', (v) => {
       this.controller.filterByYears(v, (data: Item[]) => this.view.displayCards(data))
+      this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
-    this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
   }
 
-  listenSort() {
+  addSortListener() {
     document.querySelector('.sort')?.addEventListener('change', (e) => {
       this.controller.sortItems(e, (data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
 
-  listenCards() {
+  addCardsListener() {
     document.querySelector('.cards')?.addEventListener('click', (e) => {
       const card = (e.target as Element).closest('.card')
       if(!card) return
+      this.controller.checkCartNumbers(e ,(ifMore: boolean) => this.view.showWarning(ifMore))
       this.controller.addToCart(e, (data: string[]) => this.view.addRibbons(data))
+    })
+  }
+  
+  addSearchListener() {
+    document.getElementById('search')?.addEventListener('input', (e) => {
+      this.controller.searchItems(e, (data: Item[]) => this.view.displayCards(data))
+      this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
+      const result = (e.target as HTMLInputElement)
+      if(result.value !== '') {
+        this.view.showClearButton()
+      } else {
+        this.view.hideClearButton()
+      }
+    })
+    const clearButton = document.querySelector('.search-clear') as HTMLButtonElement
+    clearButton.addEventListener('click', () => {
+      const input = document.getElementById('search') as HTMLInputElement
+      input.value = ''
+      this.view.hideClearButton()
+      this.controller.clearSearchState()
+      this.controller.getItems((data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
+    
   }
 }

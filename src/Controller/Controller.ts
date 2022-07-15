@@ -48,6 +48,19 @@ export default class Controller {
     callback(this.data)
   }
 
+  checkCartNumbers(e: Event, callback: (ifMore: boolean) => void) {
+    const card = (e.target as Element).closest('.card')
+    let name = ''
+    if(card) {
+      name = card.id
+    }
+    if(this.state.cart.length === 20 && !this.state.cart.includes(name)) {
+      callback(true)
+    } else {
+      callback(false)
+    }
+  }
+
   addToCart(e: Event, callback: (data: string[]) => void) {
     const card = (e.target as Element).closest('.card')
     let name = ''
@@ -57,6 +70,9 @@ export default class Controller {
     if(this.state.cart.includes(name)) {
       this.state.cart = this.state.cart.filter(el => el !== name)
     } else {
+      if(this.state.cart.length === 20) {
+        return
+      }
       this.state.cart.push(name)
     }
     Storage.saveState(this.state)
@@ -172,6 +188,20 @@ export default class Controller {
     callback(this.products)
   }
 
+  searchItems(e: Event, callback: (data: Item[]) => void) {
+    const str = (e.target as HTMLInputElement).value
+    this.state.search = str
+    Storage.saveState(this.state)
+    this.applyFilters()
+    callback(this.products)
+  }
+
+  clearSearchState() {
+    this.state.search = ''
+    Storage.saveState(this.state)
+    this.applyFilters()
+  }
+
   applyFilters() {
     this.products = [...this.data]
     for(let i = 0; i < this.products.length; i++) {
@@ -266,6 +296,7 @@ export default class Controller {
         return a.quantity < b.quantity ? 1 : -1
       })
     }
+    this.products = this.products.filter(p => p.name.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase()))
   }
 
 }

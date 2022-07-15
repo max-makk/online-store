@@ -57,7 +57,18 @@ export default class View {
       div.append(span)
       card.append(div)
     })
-    console.log('hiiiii')
+  }
+
+  showWarning(ifMore: boolean) {
+    const div = document.createElement('div') as HTMLElement
+    div.classList.add('warning')
+    div.textContent = 'you can add no more than 20 products'
+    if(ifMore) {
+      document.body.append(div)
+    }
+    setTimeout(() => {
+      div.remove()
+    }, 2000)
   }
 
   numberInCart(n: number) {
@@ -73,6 +84,20 @@ export default class View {
         div.remove()
       }
     })
+  }
+
+  showClearButton() {
+    const search = document.querySelector('.search-icon')
+    search?.classList.remove('search-visible')
+    const btn = document.querySelector('.search-clear')
+    btn?.classList.add('clear-visible')
+  }
+
+  hideClearButton() {
+    const search = document.querySelector('.search-icon')
+    search?.classList.add('search-visible')
+    const btn = document.querySelector('.search-clear')
+    btn?.classList.remove('clear-visible')
   }
 
   restoreView(data: State) {
@@ -93,5 +118,12 @@ export default class View {
     popular.checked = data.popular
     const option = document.querySelector(`.sort [value='${data.sorted}']`) as HTMLOptionElement
     option.selected = true
+    const search = document.getElementById('search') as HTMLInputElement
+    search.value = data.search
+    if(data.search !== '') {
+      this.showClearButton()
+    } else {
+      this.hideClearButton()
+    }
   }
 }
