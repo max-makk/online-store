@@ -1,5 +1,6 @@
 body {
   font-family: "Red Hat Mono", monospace;
+  background-color: #f7f7f7;
 }
 
 img {
@@ -79,8 +80,6 @@ img {
   display: block;
 }
 
-
-
 h1 {
   color: white;
   font-family: "Sedgwick Ave Display", cursive;
@@ -114,7 +113,7 @@ h1 {
   height: 18px;
   border: 1px solid #3e3e3e;
   appearance: none;
-  margin-right: 1em;;
+  margin-right: 1em;
   cursor: pointer;
   border-radius: 0.2em;
 }
@@ -128,7 +127,7 @@ h1 {
 }
 
 .nav-sizes label {
-  margin: 0.4em;
+  margin: 0.4em 0.4em 0.4em 0;
 }
 
 .nav-sizes input {
@@ -170,8 +169,8 @@ h1 {
   width: 30px;
   height: 2px;
   background-color: transparent;
-  display: block;;
-  top: 35px;;
+  display: block;
+  top: 35px;
   left: 5px;
 }
 
@@ -231,8 +230,6 @@ h1 {
 .label-popular input:checked {
   background-color: #3e3e3e;
 }
-
-
 
 .main {
   margin-top: 1em;
@@ -305,7 +302,7 @@ h1 {
 .ribbon::after {
   position: absolute;
   z-index: -1;
-  content: '';
+  content: "";
   display: block;
   border: 5px solid #979797;
 }
@@ -315,7 +312,7 @@ h1 {
   width: 225px;
   padding: 15px 0;
   background-color: #3e3e3e;
-  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* top left*/
@@ -354,7 +351,6 @@ h1 {
   font-weight: 700;
 }
 
-
 .warning {
   position: fixed;
   left: 50%;
@@ -365,7 +361,8 @@ h1 {
   color: white;
   text-align: center;
   padding: 1em;
-  width: 80%;
+  width: 80vw;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
