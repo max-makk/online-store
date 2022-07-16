@@ -1,8 +1,7 @@
 import View, { Item } from '../View/View'
 import Controller from '../Controller/Controller'
 import State from '../Controller/State'
-import YearsSlider from '../View/Years/Years'
-import QuantitySlider from '../View/Quantity/Quantity'
+import * as noUiSlider from 'nouislider'
 
 export default class App {
   controller: Controller
@@ -76,7 +75,7 @@ export default class App {
     const div = document.createElement('div')
     div.classList.add('quantity-slider')
     parent?.append(div)
-    const quantity = QuantitySlider.create(div, {
+    const quantity = noUiSlider.create(div, {
       start: [currentMin || min, currentMax || max],
       connect: true,
       tooltips: {
@@ -105,7 +104,7 @@ export default class App {
     const div = document.createElement('div')
     div.classList.add('years-slider')
     parent?.append(div)
-    const years = YearsSlider.create(div, {
+    const years = noUiSlider.create(div, {
       start: [currentMin || min, currentMax || max],
       connect: true,
       tooltips: {

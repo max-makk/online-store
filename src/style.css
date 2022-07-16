@@ -389,3 +389,31 @@ h1 {
   background-color: white;
   width: 5em;
 }
+
+.noUi-target {
+  height: 10px;
+}
+
+.noUi-target .noUi-handle {
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+}
+
+.noUi-base .noUi-connect {
+  background: black;
+}
+
+.noUi-tooltip {
+  font-size: 12px;
+}
+
+.slider-wrapper {
+  padding-top: 2.5em;
+}
+
+.noUi-handle::before,
+.noUi-handle::after {
+  display: none;
+}
