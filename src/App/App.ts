@@ -58,7 +58,6 @@ export default class App {
       this.controller.filterByColors(e, (data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
-
   }
 
   addPopularListener() {
@@ -67,6 +66,7 @@ export default class App {
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
+
   addQuantityListener() {
     const [min, max] = this.controller.getQuantity()
     const [currentMin, currentMax] = this.controller.getStateQuantity()
@@ -142,6 +142,7 @@ export default class App {
   }
   
   addSearchListener() {
+    document.getElementById('search')?.focus()
     document.getElementById('search')?.addEventListener('input', (e) => {
       this.controller.searchItems(e, (data: Item[]) => this.view.displayCards(data))
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
@@ -162,6 +163,7 @@ export default class App {
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
+
   addResetFilterListener() {
     const button = document.querySelector('.reset-filter') as HTMLButtonElement
     const search = document.getElementById('search') as HTMLInputElement
@@ -176,6 +178,7 @@ export default class App {
       this.controller.getCartItems((data: string[]) => this.view.addRibbons(data))
     })
   }
+
   addResetSettingsListener() {
     const button = document.querySelector('.reset-settings') as HTMLButtonElement
     const search = document.getElementById('search') as HTMLInputElement

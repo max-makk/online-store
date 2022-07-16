@@ -8,6 +8,7 @@ img {
 }
 
 .cart {
+  padding: 0.1em 0;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -102,23 +103,24 @@ h1 {
 }
 
 .nav-brands label {
-  display: block;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
+  margin: 0.1em 0;
 }
 
 .nav-brands input {
-  margin-left: 4px;
-  transform: scale(1.4);
+  width: 18px;
+  height: 18px;
+  border: 1px solid #3e3e3e;
+  appearance: none;
   margin-right: 1em;;
   cursor: pointer;
-}
-
-.nav-brands input[type=checkbox] {
-  accent-color: black;
+  border-radius: 0.2em;
 }
 
 .nav-brands input:checked {
-  background-color: black;
+  background-color: #3e3e3e;
 }
 
 .nav-brands span {
@@ -207,21 +209,30 @@ h1 {
 
 .label-popular {
   margin-top: 1em;
-  font-size: inherit;
+  font-size: 1.2rem;
   font-weight: 700;
   display: flex;
   align-items: center;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid gray;
 }
 
-.label-popular input[type=checkbox] {
-  accent-color: black;
-}
-
-.popular {
+.label-popular input {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #3e3e3e;
+  appearance: none;
+  margin-right: 1em;
+  margin-left: 0.5em;
   cursor: pointer;
-  transform: scale(1.4);
-  margin-left: 1em;
+  border-radius: 0.2em;
 }
+
+.label-popular input:checked {
+  background-color: #3e3e3e;
+}
+
+
 
 .main {
   margin-top: 1em;
@@ -296,14 +307,14 @@ h1 {
   z-index: -1;
   content: '';
   display: block;
-  border: 5px solid #a9a9a9;
+  border: 5px solid #979797;
 }
 .ribbon span {
   position: absolute;
   display: block;
   width: 225px;
   padding: 15px 0;
-  background-color: #d9d9d9;
+  background-color: #3e3e3e;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }
 
@@ -347,14 +358,14 @@ h1 {
 .warning {
   position: fixed;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  transform: translate(-50%, -20%);
   background-color: black;
   border: 2px dashed white;
   color: white;
   text-align: center;
   padding: 1em;
-  width: 100%;
+  width: 80%;
   font-weight: 700;
 }
 

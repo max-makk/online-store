@@ -68,7 +68,7 @@ export default class View {
     }
     setTimeout(() => {
       div.remove()
-    }, 2000)
+    }, 1500)
   }
 
   numberInCart(n: number) {
