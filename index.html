@@ -19,91 +19,89 @@
     <title>badstore</title>
   <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 
-  <body>
-    <div class="content container">
-      <div class="cart">
-        Cart(
-        <span class="number"></span>
-        )
-        <img src="./icons/cart.png" alt="Cart icon." />
-      </div>
-      <header class="header">
-        <h1>badstore</h1>
-        <div class="header-wrapper">
-          <div class="search-wrapper">
-            <input type="text" name="search" id="search" placeholder="Search" />
-            <div class="search-button">
-              <img
-                class="search-icon search-visible"
-                src="./icons/magnifying-glass.png"
-                alt="Search icon."
-              />
-              <button class="search-clear">
-                <img src="./icons/close.png" alt="Close icon." />
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <main class="main row">
-        <div class="nav-container col-md-3">
-          <div class="nav-group">
-            <div class="nav-header">Brand</div>
-            <div class="nav-brands"></div>
-          </div>
-          <div class="nav-group">
-            <div class="nav-header">Size</div>
-            <div class="nav-sizes"></div>
-          </div>
-          <div class="nav-group">
-            <div class="nav-header">Color</div>
-            <div class="nav-colors"></div>
-          </div>
-          <div class="nav-group">
-            <div class="nav-header"></div>
-            <label class="label-popular"
-              >Popular <input type="checkbox" class="popular"
-            /></label>
-          </div>
-          <div class="nav-group">
-            <div class="nav-header">Quantity</div>
-            <div class="slider-wrapper">
-              <div class="quantity-slider"></div>
-            </div>
-          </div>
-          <div class="nav-group">
-            <div class="nav-header">Year</div>
-            <div class="slider-wrapper">
-              <div class="years-slider"></div>
-            </div>
-          </div>
-        </div>
-        <div class="main-container col-md-9">
-          <div class="settings">
-            <button class="reset-filter">Reset Filter</button>
-            <button class="reset-settings">Reset Settings</button>
-            <div class="sorted-wrapper">
-              sorted by
-              <select name="sort" class="sort">
-                <option value="name-A">by name, from a to z</option>
-                <option value="name-D">by name, from z to a</option>
-                <option value="year-A">by year, ascending</option>
-                <option value="year-D">by year, descending</option>
-                <option value="quantity-A">by quantity, ascending</option>
-                <option value="quantity-D">by quantity, descending</option>
-              </select>
-            </div>
-          </div>
-          <div class="cards"></div>
-        </div>
-      </main>
-      <footer class="footer">
-        <a href="https://github.com/max-makk">Github</a>
-        <time datetime="2022">2022</time>
-        <a href="https://rs.school/js/">
-          <img src="./icons/rs_school_js.svg" alt="Logo icon.">
-        </a>
-      </footer>
+  <body class="container">
+    <div class="cart">
+      Cart(
+      <span class="number"></span>
+      )
+      <img src="./icons/cart.png" alt="Cart icon." />
     </div>
+    <header class="header">
+      <h1>badstore</h1>
+      <div class="header-wrapper">
+        <div class="search-wrapper">
+          <input type="text" name="search" id="search" placeholder="Search" />
+          <div class="search-button">
+            <img
+              class="search-icon search-visible"
+              src="./icons/magnifying-glass.png"
+              alt="Search icon."
+            />
+            <button class="search-clear">
+              <img src="./icons/close.png" alt="Close icon." />
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main row">
+      <div class="nav-container col-md-3">
+        <div class="nav-group">
+          <div class="nav-header">Brand</div>
+          <div class="nav-brands"></div>
+        </div>
+        <div class="nav-group">
+          <div class="nav-header">Size</div>
+          <div class="nav-sizes"></div>
+        </div>
+        <div class="nav-group">
+          <div class="nav-header">Color</div>
+          <div class="nav-colors"></div>
+        </div>
+        <div class="nav-group">
+          <div class="nav-header"></div>
+          <label class="label-popular"
+            >Popular <input type="checkbox" class="popular"
+          /></label>
+        </div>
+        <div class="nav-group">
+          <div class="nav-header">Quantity</div>
+          <div class="slider-wrapper">
+            <div class="quantity-slider"></div>
+          </div>
+        </div>
+        <div class="nav-group">
+          <div class="nav-header">Year</div>
+          <div class="slider-wrapper">
+            <div class="years-slider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="main-container col-md-9">
+        <div class="settings">
+          <button class="reset-filter">Reset Filter</button>
+          <button class="reset-settings">Reset Settings</button>
+          <div class="sorted-wrapper">
+            sorted by
+            <select name="sort" class="sort">
+              <option value="name-A">by name, from a to z</option>
+              <option value="name-D">by name, from z to a</option>
+              <option value="year-A">by year, ascending</option>
+              <option value="year-D">by year, descending</option>
+              <option value="quantity-A">by quantity, ascending</option>
+              <option value="quantity-D">by quantity, descending</option>
+            </select>
+          </div>
+        </div>
+        <div class="cards"></div>
+      </div>
+    </main>
+    <footer class="footer">
+      <a href="https://github.com/max-makk">Github</a>
+      <time datetime="2022">2022</time>
+      <a href="https://rs.school/js/">
+        <img src="./icons/rs_school_js.svg" alt="Logo icon." />
+      </a>
+    </footer>
   </body>
 </html>
