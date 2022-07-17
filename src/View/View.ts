@@ -32,19 +32,19 @@ export default class View {
     this.cards.draw(data)
   }
 
-  displayBrands(data: Item[]) {
+  displayBrands(data: Item[]): void {
     this.brands.draw(data)
   }
 
-  displaySizes(data: Item[]) {
+  displaySizes(data: Item[]): void {
     this.sizes.draw(data)
   }
 
-  displayColors(data: Item[]) {
+  displayColors(data: Item[]): void {
     this.colors.draw(data)
   }
 
-  addRibbons(data: string[]) {
+  addRibbons(data: string[]): void {
     this.clearCards()
     this.numberInCart(data.length)
     data.forEach(el => {
@@ -59,7 +59,7 @@ export default class View {
     })
   }
 
-  showWarning(ifMore: boolean) {
+  showWarning(ifMore: boolean): void {
     const div = document.createElement('div') as HTMLElement
     div.classList.add('warning')
     div.textContent = 'you can add no more than 20 products'
@@ -71,12 +71,12 @@ export default class View {
     }, 1500)
   }
 
-  numberInCart(n: number) {
+  numberInCart(n: number): void {
     const numberCart = document.querySelector('.number') as HTMLElement
     numberCart.textContent = String(n)
   }
 
-  clearCards() {
+  clearCards(): void {
     const cards: NodeListOf<HTMLElement> = document.querySelectorAll('.card')
     cards.forEach(el => {
       const div = el.lastChild as HTMLElement
@@ -86,21 +86,21 @@ export default class View {
     })
   }
 
-  showClearButton() {
+  showClearButton(): void {
     const search = document.querySelector('.search-icon')
     search?.classList.remove('search-visible')
     const btn = document.querySelector('.search-clear')
     btn?.classList.add('clear-visible')
   }
 
-  hideClearButton() {
+  hideClearButton(): void {
     const search = document.querySelector('.search-icon')
     search?.classList.add('search-visible')
     const btn = document.querySelector('.search-clear')
     btn?.classList.remove('clear-visible')
   }
 
-  restoreView(data: State) {
+  restoreView(data: State): void {
     data.brands.forEach(el => {
       const str = el.replace(/ /g, '')
       const brand = document.querySelector(`.nav-brands #${str}`) as HTMLInputElement
@@ -127,7 +127,7 @@ export default class View {
     }
   }
 
-  removeChecked() {
+  removeChecked(): void {
     const brands = document.querySelector('.nav-brands') as HTMLElement
     Array.from(brands.children).forEach(el => {
       (el.firstChild as HTMLInputElement).checked = false
@@ -143,5 +143,4 @@ export default class View {
     const popular = document.querySelector('.popular') as HTMLInputElement
     popular.checked = false
   }
-
 }

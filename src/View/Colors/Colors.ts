@@ -1,7 +1,7 @@
 import { Item } from '../View'
 
 export default class Colors {
-  draw(data: Item[]) {
+  draw(data: Item[]): void {
     const colors = document.querySelector('.nav-colors') as HTMLElement
     const set = Array.from(new Set(data.map(el => el.color)))
     set.forEach(el => {

@@ -7,7 +7,7 @@ export default class Brands {
     this.brands = document.querySelector('.nav-brands') as HTMLElement
   }
 
-  draw(data: Item[]) {
+  draw(data: Item[]): void {
     const set = Array.from(new Set(data.map(el => el.brand)))
     set.forEach(el => {
       const label: HTMLLabelElement = document.createElement('label')

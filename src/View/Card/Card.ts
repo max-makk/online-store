@@ -1,7 +1,7 @@
 import { Item } from '../View'
 
 export default class Card {
-  create(data: Item) {
+  create(data: Item): HTMLElement {
     const card: HTMLElement = document.createElement('div')
     const img: HTMLImageElement = document.createElement('img')
     const brand: HTMLElement = document.createElement('div')

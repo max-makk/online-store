@@ -7,7 +7,7 @@ export default class Sizes {
     this.sizes = document.querySelector('.nav-sizes') as HTMLElement
   }
 
-  draw(data: Item[]) {
+  draw(data: Item[]): void {
     const set = Array.from(new Set(data.map(el => el.size)))
     set.forEach(el => {
       const label: HTMLLabelElement = document.createElement('label')

@@ -14,41 +14,42 @@ export default class Controller {
     this.path = './data/db.json'
   }
 
-  async init() {
-    const response = await fetch(this.path)
-    const result = await response.json()
+  async init(): Promise<void> {
+    const response: Response = await fetch(this.path)
+    const result: Item[] = await response.json()
     this.data = result
     this.products = result
     this.checkState()
+    console.log(this.state)
   }
 
-  checkState() {
+  checkState(): void {
     if(!Storage.getState()) {
       Storage.saveState(this.state)
     } else {
-      const prev = Storage.getState()
+      const prev: State = Storage.getState()
       this.state = prev
       this.applyFilters()
     }
   }
 
-  getItems(callback: (data: Item[]) => void) {
+  getItems(callback: (data: Item[]) => void): void {
     callback(this.products)
   }
 
-  getState(callback: (data: State) => void) {
+  getState(callback: (data: State) => void): void {
     callback(this.state)
   }
 
-  getCartItems(callback: (data: string[]) => void) {
+  getCartItems(callback: (data: string[]) => void): void {
     callback(this.state.cart)
   }
 
-  getAllItems(callback: (data: Item[]) => void) {
+  getAllItems(callback: (data: Item[]) => void): void {
     callback(this.data)
   }
 
-  checkCartNumbers(e: Event, callback: (ifMore: boolean) => void) {
+  checkCartNumbers(e: Event, callback: (ifMore: boolean) => void): void {
     const card = (e.target as Element).closest('.card')
     let name = ''
     if(card) {
@@ -61,7 +62,7 @@ export default class Controller {
     }
   }
 
-  addToCart(e: Event, callback: (data: string[]) => void) {
+  addToCart(e: Event, callback: (data: string[]) => void): void {
     const card = (e.target as Element).closest('.card')
     let name = ''
     if(card) {
@@ -79,7 +80,7 @@ export default class Controller {
     callback(this.state.cart)
   }
 
-  filterByBrands(e: Event, callback: (data: Item[]) => void) {
+  filterByBrands(e: Event, callback: (data: Item[]) => void): void {
     const brand = (e.target as HTMLInputElement).id
     const check = (e.target as HTMLInputElement).checked
     const str = brand.replace(/ /g, '')
@@ -96,7 +97,7 @@ export default class Controller {
     callback(this.products)
   }
 
-  filterBySizes(e: Event, callback: (data: Item[]) => void) {
+  filterBySizes(e: Event, callback: (data: Item[]) => void): void {
     const size = +(e.target as HTMLInputElement).id.slice(1)
     const check = (e.target as HTMLInputElement).checked
     if(check) {
@@ -111,13 +112,13 @@ export default class Controller {
     callback(this.products)
   }
 
-  filterByColors(e: Event, callback: (data: Item[]) => void) {
+  filterByColors(e: Event, callback: (data: Item[]) => void): void {
     const elem = (e.target as Element).closest('.btn-color')
     let color = ''
     if(elem) {
       color = elem.classList[1]
     }
-    const btn = (e.target as HTMLElement)
+    const btn = e.target as HTMLElement
     btn.classList.toggle('active')
     const check = btn.classList.contains('active')
     if(check) {
@@ -132,7 +133,7 @@ export default class Controller {
     callback(this.products)
   }
 
-  filterByPopular(e: Event, callback: (data: Item[]) => void) {
+  filterByPopular(e: Event, callback: (data: Item[]) => void): void {
     const check = (e.target as HTMLInputElement).checked
     if(check) {
       this.state.popular = true
@@ -144,25 +145,25 @@ export default class Controller {
     callback(this.products)
   }
 
-  filterByQuantity(arr: (string | number)[], callback: (data: Item[]) => void) {
-    const [min , max] = arr
+  filterByQuantity<T>(arr: T[], callback: (data: Item[]) => void): void {
+    const [min, max] = arr
     this.state.quantity = [Math.floor(+min), Math.floor(+max)]
     Storage.saveState(this.state)
     this.applyFilters()
     callback(this.products)
   }
 
-  getQuantity() {
+  getQuantity(): [number, number] {
     const min = Math.min(...this.data.map(el => el.quantity))
     const max = Math.max(...this.data.map(el => el.quantity))
     return [min,max]
   }
 
-  getStateQuantity() {
+  getStateQuantity(): number[] {
     return this.state.quantity
   }
 
-  filterByYears(arr: (string | number)[], callback: (data: Item[]) => void) {
+  filterByYears<T>(arr: T[], callback: (data: Item[]) => void): void {
     const [min , max] = arr
     this.state.years = [Math.floor(+min), Math.floor(+max)]
     Storage.saveState(this.state)
@@ -170,17 +171,17 @@ export default class Controller {
     callback(this.products)
   }
 
-  getYears() {
+  getYears(): [number, number] {
     const min = Math.min(...this.data.map(el => el.year))
     const max = Math.max(...this.data.map(el => el.year))
     return [min,max]
   }
 
-  getStateYears() {
+  getStateYears(): number[] {
     return this.state.years
   }
 
-  sortItems(e: Event, callback: (data: Item[]) => void) {
+  sortItems(e: Event, callback: (data: Item[]) => void): void {
     const type = (e.target as HTMLOptionElement)
     this.state.sorted = type.value
     Storage.saveState(this.state)
@@ -188,7 +189,7 @@ export default class Controller {
     callback(this.products)
   }
 
-  searchItems(e: Event, callback: (data: Item[]) => void) {
+  searchItems(e: Event, callback: (data: Item[]) => void): void {
     const str = (e.target as HTMLInputElement).value
     this.state.search = str
     Storage.saveState(this.state)
@@ -196,13 +197,13 @@ export default class Controller {
     callback(this.products)
   }
 
-  clearSearchState() {
+  clearSearchState(): void {
     this.state.search = ''
     Storage.saveState(this.state)
     this.applyFilters()
   }
 
-  resetFilters() {
+  resetFilters(): void {
     this.state.brands = []
     this.state.colors = []
     this.state.sizes = []
@@ -214,17 +215,17 @@ export default class Controller {
     this.applyFilters()
   }
 
-  resetState() {
+  resetState(): void {
     this.state = new State()
     Storage.clearState()
     Storage.saveState(this.state)
     this.applyFilters()
   }
 
-  applyFilters() {
+  applyFilters(): void {
     this.products = [...this.data]
     for(let i = 0; i < this.products.length; i++) {
-      const item = this.products[i]
+      const item: Item = this.products[i]
       let del = true
       if(this.state.brands.length === 0) break
       this.state.brands.forEach(b => {
@@ -239,7 +240,7 @@ export default class Controller {
       }
     }
     for(let i = 0; i < this.products.length; i++) {
-      const item = this.products[i]
+      const item: Item = this.products[i]
       let del = true
       if(this.state.sizes.length === 0) break
       this.state.sizes.forEach(s => {
@@ -253,7 +254,7 @@ export default class Controller {
       }
     }
     for(let i = 0; i < this.products.length; i++) {
-      const item = this.products[i]
+      const item: Item = this.products[i]
       let del = true
       if(this.state.colors.length === 0) break
       this.state.colors.forEach(c => {
@@ -267,7 +268,7 @@ export default class Controller {
       }
     }
     for(let i = 0; i < this.products.length; i++) {
-      const item = this.products[i]
+      const item: Item = this.products[i]
       if(!this.state.popular) break
       if(!item.popular) {
         this.products.splice(i, 1)
@@ -275,7 +276,7 @@ export default class Controller {
       }
     }
     for(let i = 0; i < this.products.length; i++) {
-      const item = this.products[i]
+      const item: Item = this.products[i]
       if(this.state.years.length === 0) break
       if(item.year < this.state.years[0] || item.year > this.state.years[1]) {
         this.products.splice(i, 1)
@@ -283,7 +284,7 @@ export default class Controller {
       }
     }
     for(let i = 0; i < this.products.length; i++) {
-      const item = this.products[i]
+      const item: Item = this.products[i]
       if(this.state.quantity.length === 0) break
       if(item.quantity < this.state.quantity[0] || item.quantity > this.state.quantity[1]) {
         this.products.splice(i, 1)
@@ -317,5 +318,4 @@ export default class Controller {
     }
     this.products = this.products.filter(p => p.name.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase()))
   }
-
 }
