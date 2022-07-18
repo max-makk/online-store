@@ -1,0 +1,430 @@
+body {
+  font-family: "Red Hat Mono", monospace;
+  background-color: #f7f7f7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cart {
+  padding: 0.1em 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.cart img {
+  max-width: 1.5em;
+}
+
+.header {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: black;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper input {
+  outline: none;
+  border: none;
+  font-size: inherit;
+}
+
+.search-wrapper {
+  padding: 0.2em;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.search-button {
+  width: 1.3em;
+  height: 1.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon {
+  display: none;
+  max-width: 1.3em;
+}
+
+.search-visible {
+  display: block;
+}
+
+.search-clear {
+  padding: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: none;
+}
+
+.search-clear img {
+  max-width: 1.3em;
+}
+
+.clear-visible {
+  display: block;
+}
+
+h1 {
+  color: white;
+  font-family: "Sedgwick Ave Display", cursive;
+  margin-bottom: 0;
+}
+
+.nav-group {
+  margin-bottom: 1em;
+}
+
+.nav-header {
+  padding: 0.2em 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-bottom: 1px solid gray;
+}
+
+.nav-header + div {
+  margin: 0.5em 0;
+}
+
+.nav-brands label {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin: 0.1em 0;
+}
+
+.nav-brands input {
+  min-width: 18px;
+  min-height: 18px;
+  border: 1px solid #3e3e3e;
+  appearance: none;
+  margin-right: 1em;
+  cursor: pointer;
+  border-radius: 0.2em;
+}
+
+.nav-brands input:checked {
+  background-color: #3e3e3e;
+}
+
+.nav-brands span {
+  margin-left: 0.5em;
+}
+
+.nav-sizes label {
+  margin: 0.4em 0.4em 0.4em 0;
+}
+
+.nav-sizes input {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  pointer-events: none;
+}
+
+.nav-sizes span {
+  padding: 0.2em 0.5em;
+  width: 55px;
+  border: 1px solid gray;
+  border-radius: 0.2em;
+}
+
+.nav-sizes span:hover,
+.nav-sizes input:checked + span {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.btn-color {
+  width: 40px;
+  height: 30px;
+  border: 1px solid black;
+  position: relative;
+  border-radius: 0.2em;
+}
+
+.btn-border {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: transparent;
+  display: block;
+  top: 35px;
+  left: 5px;
+}
+
+.btn-color.active .btn-border {
+  background-color: black;
+}
+
+.btn-color.black {
+  background-color: black;
+}
+
+.btn-color.pink {
+  background-color: pink;
+}
+
+.btn-color.orange {
+  background-color: orange;
+}
+
+.btn-color.white {
+  background-color: whtie;
+}
+
+.btn-color.blue {
+  background-color: blue;
+}
+
+.btn-color.green {
+  background-color: green;
+}
+
+.btn-color.multi {
+  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+}
+
+.label-popular {
+  margin-top: 1em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid gray;
+}
+
+.label-popular input {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #3e3e3e;
+  appearance: none;
+  margin-right: 1em;
+  margin-left: 0.5em;
+  cursor: pointer;
+  border-radius: 0.2em;
+}
+
+.label-popular input:checked {
+  background-color: #3e3e3e;
+}
+
+.main {
+  margin-top: 1em;
+}
+
+.main-container {
+  margin-top: 1em;
+}
+
+.settings {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  padding: 1em;
+  gap: 1em;
+}
+
+.settings button {
+  background-color: transparent;
+  border-color: black;
+  border-radius: 0.2em;
+}
+
+.settings select {
+  font-size: inherit;
+  border: 2px solid black;
+  outline: none;
+  background-color: transparent;
+  padding: 0.1em;
+}
+
+.settings button:hover,
+.settings button:active {
+  background-color: #3e3e3e;
+  color: white;
+  border: 2px solid #3e3e3e;
+}
+
+.cards {
+  margin-top: 1em;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    justify-content: center;
+  }
+}
+
+.card {
+  padding: 0.5em;
+  width: 232px;
+  min-width: 232px;
+  max-width: 50%;
+  flex: 1;
+  cursor: pointer;
+}
+
+.card-brand {
+  color: #707070;
+}
+
+.card-price {
+  font-weight: 700;
+}
+/* common */
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  border: 5px solid #979797;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 15px 0;
+  background-color: #3e3e3e;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* top left*/
+.ribbon-top-left {
+  top: -10px;
+  left: -10px;
+}
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.ribbon-top-left::before {
+  top: 0;
+  right: 0;
+}
+.ribbon-top-left::after {
+  bottom: 0;
+  left: 0;
+}
+.ribbon-top-left span {
+  right: -27px;
+  top: 50px;
+  transform: rotate(-45deg);
+}
+
+.slider-wrapper {
+  padding: 0 1em;
+}
+
+.slider-wrapper div {
+  cursor: pointer;
+}
+
+.notify {
+  border: 2px dashed black;
+  text-align: center;
+  padding: 1em;
+  width: 100%;
+  font-weight: 700;
+}
+
+.warning {
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -20%);
+  background-color: black;
+  border: 2px dashed white;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  width: 80vw;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer {
+  background-color: black;
+  margin: 1em 0;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  color: white;
+}
+
+.footer a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+
+.footer img {
+  padding: 0.5em;
+  background-color: white;
+  width: 5em;
+}
+
+.noUi-target {
+  height: 10px;
+}
+
+.noUi-target .noUi-handle {
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+}
+
+.noUi-base .noUi-connect {
+  background: black;
+}
+
+.noUi-tooltip {
+  font-size: 12px;
+}
+
+.slider-wrapper {
+  padding-top: 2.5em;
+}
+
+.noUi-handle::before,
+.noUi-handle::after {
+  display: none;
+}
