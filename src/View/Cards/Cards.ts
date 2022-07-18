@@ -13,7 +13,7 @@ export default class Cards {
     }
     data.forEach(el => {
       const current = new Card()
-      const card = current.create(el)
+      const card = current.draw(el)
       container.append(card)
     })
   }

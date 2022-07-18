@@ -20,14 +20,13 @@ export default class Controller {
     this.data = result
     this.products = result
     this.checkState()
-    console.log(this.state)
   }
 
   checkState(): void {
-    if(!Storage.getState()) {
+    if(!Storage.checkPrevState()) {
       Storage.saveState(this.state)
     } else {
-      const prev: State = Storage.getState()
+      const prev: State = Storage.getPrevState()
       this.state = prev
       this.applyFilters()
     }
