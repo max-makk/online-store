@@ -343,6 +343,10 @@ h1 {
   padding: 0 1em;
 }
 
+.slider-wrapper div {
+  cursor: pointer;
+}
+
 .notify {
   border: 2px dashed black;
   text-align: center;
