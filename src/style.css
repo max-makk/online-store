@@ -109,8 +109,8 @@ h1 {
 }
 
 .nav-brands input {
-  width: 18px;
-  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
   border: 1px solid #3e3e3e;
   appearance: none;
   margin-right: 1em;
